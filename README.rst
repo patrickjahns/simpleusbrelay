@@ -20,20 +20,20 @@ Usage
 
 Install::
 
-    pip install simpleusbrelay
+	pip install simpleusbrelay
 
 Instantiate::
 
-    import simpleusbrelay
-    relaycontroller=simpleusbrelay(idVendor=16c0, idProduct=05df)
+	import simpleusbrelay
+	relaycontroller=simpleusbrelay(idVendor=16c0, idProduct=05df)
 
 Turning relay x on/off::
 	
 	#x == relaynumber (between 1 - 8)
-    relaycontroller.array_on(x)
+	relaycontroller.array_on(x)
 	relaycontroller.array_off(x)
 
 Turning all relays on/off::
 
-    relaycontroller.array_on(all)
+	relaycontroller.array_on(all)
 	relaycontroller.array_off(all)
