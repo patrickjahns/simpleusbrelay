@@ -32,8 +32,8 @@ class simpleusbrelay(object):
 	[0xFD, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]\
 	]
 	def __init__(self,Vendor,Product ):
-	        self.idVendor = Vendor
-        	self.idProduct = Product
+		self.idVendor = Vendor
+		self.idProduct = Product
 		self.dev = usb.core.find(idVendor=Vendor, idProduct=Product)
 		if self.dev is None:
 			raise ValueError('Device not found')
@@ -41,11 +41,11 @@ class simpleusbrelay(object):
 	def __send_msg(self, msg):
 		interface=0
 		reattach=False
-	    	if self.dev.is_kernel_driver_active(interface) is True:
+		if self.dev.is_kernel_driver_active(interface) is True:
 				reattach=True
 				try:
 					self.dev.detach_kernel_driver(interface)
-				except Exception, e:
+				except Exception as e:
 					pass # already unregistered
 
 		self.dev.set_configuration()
@@ -54,7 +54,7 @@ class simpleusbrelay(object):
 		if reattach:
 			try:
 				self.dev.detach_kernel_driver(interface)
-			except Exception, e:
+			except Exception as e:
 				pass # already unregistered
 	
 	def array_on(self, array_number):
@@ -74,7 +74,3 @@ class simpleusbrelay(object):
 				self.__send_msg(self.byte_devices_off[array_number])
 			else:
 				self.__send_msg(self.byte_devices_off[0])
-				
-	
-		
-		
