@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='python-simple-usbarray',
+    name='python-simple-usbrelay',
     url='https://github.com/patrickjahns/simpleusbrelay',
     version='0.1',
     packages=['simpleusbarray'],
